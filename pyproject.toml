@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cs-massive-access"
+version = "0.1.0"
+description = "Classical compressed sensing and LISTA deep unfolding for massive random access."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Guy" }
+]
+dependencies = [
+  "numpy>=1.26",
+  "torch>=2.2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+csma-demo = "cs_massive_access.demo:main"
+csma-train = "cs_massive_access.train:main"
+csma-evaluate = "cs_massive_access.evaluate:main"
+
+[tool.setuptools.packages.find]
+include = ["cs_massive_access*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
